@@ -9,6 +9,12 @@ const ISSUES = [
     packageName: '@expo/ui',
     platforms: 'iOS',
   },
+  {
+    href: '/issues/expo-ui-material-colors-cache',
+    title: 'useMaterialColors calls the native module on every render',
+    packageName: '@expo/ui',
+    platforms: 'Android',
+  },
 ] as const;
 
 export default function Index() {
