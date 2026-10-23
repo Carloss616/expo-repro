@@ -1,21 +1,8 @@
-import { Link, Stack } from 'expo-router';
+import { Href, Link, Stack } from 'expo-router';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 /** One entry per reproduction; each lives in `app/issues/<slug>/`. */
-const ISSUES = [
-  {
-    href: '/issues/expo-ui-host-matchcontents',
-    title: '<Host matchContents> jumps when its content resizes',
-    packageName: '@expo/ui',
-    platforms: 'iOS',
-  },
-  {
-    href: '/issues/expo-ui-material-colors-cache',
-    title: 'useMaterialColors calls the native module on every render',
-    packageName: '@expo/ui',
-    platforms: 'Android',
-  },
-] as const;
+const ISSUES: { href: Href; title: string; packageName: string; platforms: string }[] = [];
 
 export default function Index() {
   return (
@@ -29,7 +16,7 @@ export default function Index() {
       <Text style={styles.sectionHeader}>Issues</Text>
       <View style={styles.group}>
         {ISSUES.map((issue, index) => (
-          <Link key={issue.href} href={issue.href} asChild>
+          <Link key={issue.title} href={issue.href} asChild>
             <Pressable>
               {({ pressed }) => (
                 <View style={[styles.row, index > 0 && styles.separator, pressed && styles.pressed]}>
